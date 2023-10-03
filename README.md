@@ -20,7 +20,7 @@
 
 - *As a user, I want to be able to add a house to my list of property.*
 - *As a user, I want to be able to view the list of houses.*
-- *As a user, I want to be able to mark a house as sold.*
+- *As a user, I want to be able to mark a property as sold.*
 - *As a user, I want to be able to remove a house from my list of property.*
 - *As a user, I want to be able to filter the list of property based on the location and show a list of properties 
    in the specific city.*
