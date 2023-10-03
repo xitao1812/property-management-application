@@ -73,6 +73,4 @@ public class PropertyList {
         return propertyList.size();
     }
 
-
-
 }
