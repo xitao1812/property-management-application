@@ -58,6 +58,16 @@ public class PropertyListTest {
     }
 
     @Test
+    void testGetPropertyList () {
+        propertyList.addProperty(property1);
+        propertyList.addProperty(property2);
+        propertyListInCity = propertyList.getPropertyList();
+        assertEquals(2, propertyList.size());
+        assertTrue(propertyList.contains(property1));
+        assertTrue(propertyList.contains(property2));
+    }
+
+    @Test
     void testGetPropertyListInCity () {
         propertyList.addProperty(property1);
         propertyList.addProperty(property2);

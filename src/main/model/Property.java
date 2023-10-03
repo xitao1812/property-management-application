@@ -1,9 +1,8 @@
 package model;
 
-
 public class Property {
 
-    private String address;
+    private final String address;
     private String city;
     private int price;
     private String ownerName;

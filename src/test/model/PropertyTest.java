@@ -24,6 +24,12 @@ public class PropertyTest {
         assertEquals(1400000, property1.getPrice());
         assertEquals("Peter", property1.getOwnerName());
         assertFalse(property1.getSoldStatus());
+
+        assertEquals("6688 EDINBURGH STREET", property2.getAddress());
+        assertEquals("BURNABY", property2.getCity());
+        assertEquals(1700000, property2.getPrice());
+        assertEquals("Sally", property2.getOwnerName());
+        assertFalse(property2.getSoldStatus());
     }
 
 
