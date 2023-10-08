@@ -1,11 +1,15 @@
 package model;
 
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class PropertyList {
     private ArrayList<Property> propertyList;
-    private ArrayList<Property> propertyListInCity;
-    private ArrayList<Property> propertyListInRange;
+    private List<Property> propertyListInCity;
+    private List<Property> propertyListInRange;
+    private List<Property> propertyListCityAndPriceRange;
+
 
     // REQUIRES:
     // EFFECTS: Construct a property list
@@ -13,7 +17,7 @@ public class PropertyList {
         this.propertyList = new ArrayList<>();
     }
 
-    public ArrayList<Property> getPropertyList() {
+    public List<Property> getPropertyList() {
         return propertyList;
     }
 
@@ -40,7 +44,7 @@ public class PropertyList {
     }
 
     // EFFECTS: return a list of property in the specified city
-    public ArrayList<Property> getPropertyListInCity(String city) {
+    public List<Property> getPropertyListInCity(String city) {
         propertyListInCity = new ArrayList<>();
         for (Property property : propertyList) {
             if (property.getCity().equalsIgnoreCase(city)) {
@@ -53,16 +57,31 @@ public class PropertyList {
     // REQUIRES: minPrice >= 0, maxPrice >= 0, minPrice < maxPrice
     // EFFECTS: return a list of property that has a price more than the minPrice and less than
     // maxPrice
-    public ArrayList<Property> getPropertyListInPriceRange(int minPrice, int maxPrice) {
+    public List<Property> getPropertyListInPriceRange(int minPrice, int maxPrice) {
         propertyListInRange = new ArrayList<>();
         for (Property property : propertyList) {
-            if (property.getPrice() > minPrice && property.getPrice() < maxPrice) {
+            if (property.getPrice() >= minPrice && property.getPrice() <= maxPrice) {
                 propertyListInRange.add(property);
             }
         }
         return propertyListInRange;
     }
 
+    public List<Property> getPropertyListCityAndPrice(String city, int minPrice, int maxPrice) {
+        //return getPropertyListInCity(city).getPropertyListInPriceRange(minPrice, maxPrice);
+
+
+        propertyListCityAndPriceRange = new ArrayList<>();
+        for (Property property : propertyList) {
+            if (property.getPrice() >= minPrice && property.getPrice() <= maxPrice
+                    && property.getCity().equalsIgnoreCase(city)) {
+                propertyListCityAndPriceRange.add(property);
+            }
+        }
+        return propertyListCityAndPriceRange;
+
+
+    }
 
     public boolean contains(Property property) {
         return propertyList.contains(property);
@@ -71,5 +90,9 @@ public class PropertyList {
     public int size() {
         return propertyList.size();
     }
+
+
+
+
 
 }

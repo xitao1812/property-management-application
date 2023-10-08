@@ -1,12 +1,13 @@
 package model;
 
+// Represents a property having an address, city, price, owner name and sold status
 public class Property {
 
     private final String address;
-    private String city;
+    private final String city;
     private int price;
     private String ownerName;
-    private static boolean isSold;
+    private boolean isSold;
 
     // EFFECTS: construct a property with given address, city, price, owner and status
     public Property(String address, String city, int price, String ownerName, boolean isSold) {
@@ -21,6 +22,7 @@ public class Property {
         return address;
     }
 
+
     public String getCity() {
         return city;
     }
@@ -29,20 +31,16 @@ public class Property {
         return price;
     }
 
-    public String getOwnerName() {
-        return ownerName;
-    }
-
     public boolean getSoldStatus() {
-        return Property.isSold;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
+        return isSold;
     }
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public String getOwnerName() {
+        return ownerName;
     }
 
     public void setOwnerName(String owner) {

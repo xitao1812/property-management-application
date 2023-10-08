@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+// Represents a property list having an address, city, price, owner name and sold status
+
 public class PropertyTest {
     private Property property1;
     private Property property2;
