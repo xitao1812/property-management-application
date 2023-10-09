@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PropertyList {
-    private ArrayList<Property> propertyList;
+    private final ArrayList<Property> propertyList;
     private List<Property> propertyListInCity;
     private List<Property> propertyListInRange;
     private List<Property> propertyListCityAndPriceRange;
