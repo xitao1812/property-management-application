@@ -9,7 +9,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-
+// Test methods for property list
 public class PropertyListTest {
     PropertyList propertyList;
     List<Property> propertyListInCity;
@@ -25,15 +25,15 @@ public class PropertyListTest {
     void runBefore() {
         propertyList = new PropertyList();
         property1 = new Property("3888 FOSTER STREET", "RICHMOND",
-                1400000, "Peter", false);
+                1400000, "Peter");
         property2 = new Property("6688 EDINBURGH STREET", "BURNABY",
-                17000000, "Sally", false);
+                17000000, "Sally");
         property3 = new Property("4406 DAWSON STREET", "BURNABY",
-                1000000, "Linda", false);
+                1000000, "Linda");
         property4 = new Property("6038 FLEMING STREET", "VANCOUVER",
-                1300000, "Jerry", false);
+                1300000, "Jerry");
         property5 = new Property("6038 FLEMING STREET", "BURNABY",
-                1200000, "David", false);
+                1200000, "David");
     }
 
     @Test
@@ -125,10 +125,8 @@ public class PropertyListTest {
         assertTrue(propertyListInPriceRange.contains(property4));
         assertTrue(propertyListInPriceRange.contains(property2));
         assertFalse(propertyListInPriceRange.contains(property3));
-
-
-
     }
+
 
     @Test
     void testGetPropertyListInCityAndPrice () {

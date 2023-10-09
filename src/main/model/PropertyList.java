@@ -11,17 +11,16 @@ public class PropertyList {
     private List<Property> propertyListCityAndPriceRange;
 
 
-    // REQUIRES:
     // EFFECTS: Construct a property list
     public PropertyList() {
         this.propertyList = new ArrayList<>();
     }
 
+    // EFFECTS: return the property list
     public List<Property> getPropertyList() {
         return propertyList;
     }
 
-    // REQUIRES: propertyIndex >= 0 and propertyIndex < size of propertyList
     // MODIFIES: this
     // EFFECTS: add a property to the property list
     public void addProperty(Property property) {
@@ -55,8 +54,8 @@ public class PropertyList {
     }
 
     // REQUIRES: minPrice >= 0, maxPrice >= 0, minPrice < maxPrice
-    // EFFECTS: return a list of property that has a price more than the minPrice and less than
-    // maxPrice
+    // EFFECTS: return a list of property in the specified price range (has a price more than the minPrice
+    // and less than maxPrice)
     public List<Property> getPropertyListInPriceRange(int minPrice, int maxPrice) {
         propertyListInRange = new ArrayList<>();
         for (Property property : propertyList) {
@@ -67,9 +66,11 @@ public class PropertyList {
         return propertyListInRange;
     }
 
+    // REQUIRES: minPrice >= 0, maxPrice >= 0, minPrice < maxPrice
+    // EFFECTS: return a list of property in the specified city and price range (has a price more than the minPrice
+    // and less than maxPrice)
     public List<Property> getPropertyListCityAndPrice(String city, int minPrice, int maxPrice) {
         //return getPropertyListInCity(city).getPropertyListInPriceRange(minPrice, maxPrice);
-
 
         propertyListCityAndPriceRange = new ArrayList<>();
         for (Property property : propertyList) {
@@ -79,20 +80,23 @@ public class PropertyList {
             }
         }
         return propertyListCityAndPriceRange;
-
-
     }
 
+    // EFFECTS: return true if the property list contains the property, otherwise return false
     public boolean contains(Property property) {
         return propertyList.contains(property);
     }
 
+    // EFFECTS: return the size of the property list
     public int size() {
         return propertyList.size();
     }
 
-
-
+    // REQUIRES: propertyIndex >= 0 and propertyIndex < size of propertyList
+    // EFFECTS: return the property in the property list based on propertyIndex
+    public Property get(int propertyIndex) {
+        return propertyList.get(propertyIndex);
+    }
 
 
 }

@@ -5,8 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-// Represents a property list having an address, city, price, owner name and sold status
-
+// Test methods for property
 public class PropertyTest {
     private Property property1;
     private Property property2;
@@ -14,9 +13,9 @@ public class PropertyTest {
     @BeforeEach
     void runBefore() {
         property1 = new Property("2686 18TH AVE E", "VANCOUVER",
-                1400000, "Peter", false);
+                1400000, "Peter");
         property2 = new Property("6688 EDINBURGH STREET", "BURNABY",
-                1700000, "Sally", false);
+                1700000, "Sally");
     }
 
     @Test

@@ -3,7 +3,6 @@ package ui;
 import model.Property;
 import model.PropertyList;
 
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -60,7 +59,6 @@ public class PropertyListApp {
     }
 
     private void init() {
-
         input = new Scanner(System.in);
     }
 
@@ -87,7 +85,7 @@ public class PropertyListApp {
         System.out.print("Enter property price : $");
         int price = input.nextInt();
 
-        propertyList.addProperty(new Property(address, city, price, ownerName, false));
+        propertyList.addProperty(new Property(address, city, price, ownerName));
 
     }
 
@@ -96,7 +94,12 @@ public class PropertyListApp {
         int propertyIndex = input.nextInt();
         if (propertyIndex < propertyList.size()) {
             propertyList.markPropertyAsSold(propertyIndex);
-            System.out.print("Marked as Sold successfully");
+            System.out.print("Marked as Sold successfully! ");
+            System.out.println("What is the new owner name:");
+            input.nextLine();
+            String newOwnerName = input.nextLine();
+            Property soldProperty = propertyList.get(propertyIndex);
+            soldProperty.setOwnerName(newOwnerName);
         } else {
             System.out.print("Index not valid");
         }
