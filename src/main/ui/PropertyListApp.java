@@ -63,26 +63,6 @@ public class PropertyListApp {
                 System.out.println("Selection not valid");
         }
 
-        /*
-        if (command.equals("1")) {
-            createProperty();
-        } else if (command.equals("2")) {
-            markPropertyAsSold();
-        } else if (command.equals("3")) {
-            removeProperty();
-        } else if (command.equals("4")) {
-            viewPropertyList();
-        } else if (command.equals("5")) {
-            viewPropertyListInCity();
-        } else if (command.equals("6")) {
-            viewPropertyListInPriceRange();
-        } else if (command.equals("7")) {
-            viewPropertyListCityAndPrice();
-        } else {
-            System.out.println("Selection not valid");
-        }
-         */
-
     }
 
     private void init() {
