@@ -3,15 +3,12 @@ package ui;
 import model.Property;
 import model.PropertyList;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 // Property list application
 public class PropertyListApp {
-    private PropertyList propertyList;
-    private List<Property> propertyListAll;
-    private Property property;
+    private final PropertyList propertyList;
     private Scanner input;
 
     public PropertyListApp()  {
@@ -21,7 +18,7 @@ public class PropertyListApp {
 
     private void runPropertyList() {
         boolean keepGoing = true;
-        String command = null;
+        String command;
 
         init();
 
@@ -39,6 +36,34 @@ public class PropertyListApp {
     }
 
     private void processCommand(String command) {
+
+        switch (command) {
+            case "1":
+                createProperty();
+                break;
+            case "2":
+                markPropertyAsSold();;
+                break;
+            case "3":
+                removeProperty();;
+                break;
+            case "4":
+                viewPropertyList();
+                break;
+            case "5":
+                viewPropertyListInCity();
+                break;
+            case "6":
+                viewPropertyListInPriceRange();
+                break;
+            case "7":
+                viewPropertyListCityAndPrice();
+                break;
+            default:
+                System.out.println("Selection not valid");
+        }
+
+        /*
         if (command.equals("1")) {
             createProperty();
         } else if (command.equals("2")) {
@@ -56,6 +81,8 @@ public class PropertyListApp {
         } else {
             System.out.println("Selection not valid");
         }
+         */
+
     }
 
     private void init() {
@@ -187,7 +214,7 @@ public class PropertyListApp {
 
         System.out.println("Address:" + address);
         System.out.println("City:" + city);
-        System.out.println("Price:" + price);
+        System.out.println("Price: $" + price);
         System.out.println("Owner Name:" + owner);
         System.out.println("Sold Status:" + isSold);
 
