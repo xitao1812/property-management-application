@@ -63,8 +63,15 @@ public class PropertyListTest {
         assertFalse(property1.getSoldStatus());
         propertyList.markPropertyAsSold(0);
         assertTrue(property1.getSoldStatus());
-        property1.setOwnerName("Tammy");
-        assertEquals("Tammy", property1.getOwnerName());
+        property1.setOwnerName("Sophie");
+        Property soldProperty = propertyList.get(0);
+        assertEquals("Sophie", soldProperty.getOwnerName());
+        propertyList.markPropertyAsSold(1);
+        assertTrue(property2.getSoldStatus());
+        property2.setOwnerName("Tim");
+        Property soldProperty2 = propertyList.get(1);
+        assertEquals("Tim", soldProperty2.getOwnerName());
+
     }
 
     @Test
