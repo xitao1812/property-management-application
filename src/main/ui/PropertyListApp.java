@@ -36,33 +36,23 @@ public class PropertyListApp {
     }
 
     private void processCommand(String command) {
-
-        switch (command) {
-            case "1":
-                createProperty();
-                break;
-            case "2":
-                markPropertyAsSold();;
-                break;
-            case "3":
-                removeProperty();;
-                break;
-            case "4":
-                viewPropertyList();
-                break;
-            case "5":
-                viewPropertyListInCity();
-                break;
-            case "6":
-                viewPropertyListInPriceRange();
-                break;
-            case "7":
-                viewPropertyListCityAndPrice();
-                break;
-            default:
-                System.out.println("Selection not valid");
+        if (command.equals("1")) {
+            createProperty();
+        } else if (command.equals("2")) {
+            markPropertyAsSold();
+        } else if (command.equals("3")) {
+            removeProperty();
+        } else if (command.equals("4")) {
+            viewPropertyList();
+        } else if (command.equals("5")) {
+            viewPropertyListInCity();
+        } else if (command.equals("6")) {
+            viewPropertyListInPriceRange();
+        } else if (command.equals("7")) {
+            viewPropertyListCityAndPrice();
+        } else {
+            System.out.println("Selection not valid");
         }
-
     }
 
     private void init() {
