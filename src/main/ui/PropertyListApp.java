@@ -178,7 +178,7 @@ public class PropertyListApp {
     private void printPropertyInfo(Property property) {
         String address = property.getAddress();
         String city = property.getCity();
-        double price = property.getPrice();
+        int price = property.getPrice();
         String owner = property.getOwnerName();
         Boolean isSold = property.getSoldStatus();
 

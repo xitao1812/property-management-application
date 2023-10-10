@@ -31,7 +31,7 @@ public class Property {
     }
 
     // EFFECTS: return the price of the property
-    public double getPrice() {
+    public int getPrice() {
         return price;
     }
 

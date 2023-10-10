@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PropertyList {
-    private final ArrayList<Property> propertyList;
+    private final List<Property> propertyList;
     private List<Property> propertyListInCity;
     private List<Property> propertyListInRange;
     private List<Property> propertyListCityAndPriceRange;
@@ -70,8 +70,6 @@ public class PropertyList {
     // EFFECTS: return a list of property in the specified city and price range (has a price more than the minPrice
     // and less than maxPrice)
     public List<Property> getPropertyListCityAndPrice(String city, int minPrice, int maxPrice) {
-        //return getPropertyListInCity(city).getPropertyListInPriceRange(minPrice, maxPrice);
-
         propertyListCityAndPriceRange = new ArrayList<>();
         for (Property property : propertyList) {
             if (property.getPrice() >= minPrice && property.getPrice() <= maxPrice
@@ -80,6 +78,7 @@ public class PropertyList {
             }
         }
         return propertyListCityAndPriceRange;
+
     }
 
     // EFFECTS: return true if the property list contains the property, otherwise return false

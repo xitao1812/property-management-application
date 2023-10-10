@@ -1,6 +1,5 @@
 package model;
 
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -19,6 +18,7 @@ public class PropertyListTest {
     private Property property3;
     private Property property4;
     private Property property5;
+    private Property property6;
 
     @BeforeEach
     void runBefore() {
@@ -29,10 +29,12 @@ public class PropertyListTest {
                 17000000, "Sally");
         property3 = new Property("4406 DAWSON STREET", "BURNABY",
                 1000000, "Linda");
-        property4 = new Property("6038 FLEMING STREET", "VANCOUVER",
+        property4 = new Property("6038 FRASER STREET", "VANCOUVER",
                 1300000, "Jerry");
         property5 = new Property("6038 FLEMING STREET", "BURNABY",
                 1200000, "David");
+        property6 = new Property("3038 MANITOBA STREET", "BURNABY",
+                900000, "Jason");
     }
 
     @Test
@@ -147,6 +149,7 @@ public class PropertyListTest {
         assertTrue(propertyListInCityAndRange.contains(property3));
 
         propertyList.addProperty(property5);
+        propertyList.addProperty(property6);
         propertyListInCityAndRange = propertyList.getPropertyListCityAndPrice("BURNABY",
                 1000000, 1400000);
         assertEquals(2, propertyListInCityAndRange.size());
