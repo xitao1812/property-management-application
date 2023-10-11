@@ -16,10 +16,10 @@ public class PropertyListApp {
         runPropertyList();
     }
 
-    // Referenced the Teller app UI code
+    // Referenced the Teller App runTeller code
     private void runPropertyList() {
         boolean keepGoing = true;
-        String command;
+        String command = null;
 
         init();
 
@@ -33,7 +33,7 @@ public class PropertyListApp {
                 processCommand(command);
             }
         }
-
+        System.out.println("\nGoodbye!");
     }
 
     private void processCommand(String command) {
@@ -61,6 +61,7 @@ public class PropertyListApp {
     }
 
     private void displayMenu() {
+        System.out.println("\nProperty List Application");
         System.out.println("\nSelect from:");
         System.out.println("\t1 -> add a new property");
         System.out.println("\t2 -> mark a property as sold");
@@ -188,13 +189,12 @@ public class PropertyListApp {
         System.out.println("Price: $" + price);
         System.out.println("Owner Name:" + owner);
         if (isSold) {
-            System.out.println("Sold Status:" + "Sold Successfully");
+            System.out.println("Sold Status:" + "Sold");
         } else {
             System.out.println("Sold Status:" + "Available for Sale");
         }
 
     }
-
 
 }
 

@@ -33,9 +33,4 @@ public class PropertyTest {
         assertFalse(property2.getSoldStatus());
     }
 
-
-
-
-
-
 }
