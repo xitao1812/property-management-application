@@ -16,6 +16,7 @@ public class PropertyListApp {
         runPropertyList();
     }
 
+    // Referenced the Teller app UI code
     private void runPropertyList() {
         boolean keepGoing = true;
         String command;
@@ -174,7 +175,7 @@ public class PropertyListApp {
 
 
 
-    // EFFECTS: prints a property's address, city, price and sold status
+    // EFFECTS: prints a property's address, city, price, owner name, and sold status
     private void printPropertyInfo(Property property) {
         String address = property.getAddress();
         String city = property.getCity();
@@ -186,9 +187,11 @@ public class PropertyListApp {
         System.out.println("City:" + city);
         System.out.println("Price: $" + price);
         System.out.println("Owner Name:" + owner);
-        System.out.println("Sold Status:" + isSold);
-
-
+        if (isSold) {
+            System.out.println("Sold Status:" + "Sold Successfully");
+        } else {
+            System.out.println("Sold Status:" + "Available for Sale");
+        }
 
     }
 
