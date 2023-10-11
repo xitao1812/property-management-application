@@ -123,7 +123,7 @@ public class PropertyListApp {
         System.out.println("Property List");
         System.out.println("--------------------");
         for (Property property : propertyList) {
-            System.out.println("Property Index" + propertyIndex);
+            System.out.println("Property Index " + propertyIndex);
             printPropertyInfo(property);
             System.out.println("--------------------");
             propertyIndex++;
@@ -134,7 +134,7 @@ public class PropertyListApp {
         System.out.print("Which city you want to view a list of properties in:");
         String city = input.next();
         List<Property> propertyList = this.propertyList.getPropertyListInCity(city);
-        System.out.println("Property List in" + city);
+        System.out.println("Property List in " + city);
         System.out.println("--------------------");
         for (Property property : propertyList) {
             printPropertyInfo(property);
@@ -149,7 +149,7 @@ public class PropertyListApp {
         System.out.print("What is the maximum price you want to view a list of properties in");
         int maxPrice = input.nextInt();
         List<Property> propertyList = this.propertyList.getPropertyListInPriceRange(minPrice, maxPrice);
-        System.out.println("Property List in Price Range[" + minPrice + "," + maxPrice + "]");
+        System.out.println("Property List in Price Range [" + minPrice + "," + maxPrice + "]");
         System.out.println("--------------------");
         for (Property property : propertyList) {
             printPropertyInfo(property);
