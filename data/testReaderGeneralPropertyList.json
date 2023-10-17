@@ -1,0 +1,19 @@
+{
+    "name": "Realtor's property list",
+    "properties": [
+        {
+            "address": "3888 FOSTER STREET",
+            "ownerName": "Peter",
+            "city": "RICHMOND",
+            "price": 1400000,
+            "isSold": false
+        },
+        {
+            "address": "3038 MANITOBA STREET",
+            "ownerName": "Jason",
+            "city": "BURNABY",
+            "price": 900000,
+            "isSold": false
+        }
+    ]
+}
