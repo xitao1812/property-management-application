@@ -1,7 +1,10 @@
 package model;
 
+import org.json.JSONObject;
+import persistence.Writable;
+
 // Represents a property having an address, city, price, owner name and sold status
-public class Property {
+public class Property implements Writable {
 
     private final String address;
     private final String city;
@@ -63,6 +66,17 @@ public class Property {
     // EFFECTS: mark the property as sold by changing the property's isSold status to true
     public void setAsSold() {
         this.isSold = true;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("address", address);
+        json.put("city", city);
+        json.put("price", price);
+        json.put("ownerName", ownerName);
+        json.put("isSold", false);
+        return json;
     }
 
 

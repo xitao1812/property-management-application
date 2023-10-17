@@ -5,18 +5,32 @@ import model.PropertyList;
 
 import java.util.List;
 import java.util.Scanner;
+import persistence.JsonReader;
+import persistence.JsonWriter;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 // Property list application
 public class PropertyListApp {
-    private final PropertyList propertyList;
+    private static final String JSON_STORE = "./data/propertyList.json";
+    private PropertyList propertyList;
     private Scanner input;
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
 
+    // Referenced the Teller App runTeller code
+    // EFFECTS: runs the property list application
     public PropertyListApp()  {
-        propertyList = new PropertyList();
+        input = new Scanner(System.in);
+        propertyList = new PropertyList("Realtor's property list");
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
         runPropertyList();
     }
 
-    // Referenced the Teller App runTeller code
+    // MODIFIES: this
+    // EFFECTS: processes user input
     private void runPropertyList() {
         boolean keepGoing = true;
         String command = null;
@@ -36,6 +50,9 @@ public class PropertyListApp {
         System.out.println("\nGoodbye!");
     }
 
+
+    // MODIFIES: this
+    // EFFECTS: processes user command
     private void processCommand(String command) {
         if (command.equals("1")) {
             createProperty();
@@ -51,15 +68,23 @@ public class PropertyListApp {
             viewPropertyListInPriceRange();
         } else if (command.equals("7")) {
             viewPropertyListCityAndPrice();
+        } else if (command.equals("s")) {
+            savePropertyList();
+        } else if (command.equals("l")) {
+            loadPropertyList();
         } else {
             System.out.println("Selection not valid");
         }
     }
 
+    // MODIFIES: this
+    // EFFECTS: initializes property list
     private void init() {
         input = new Scanner(System.in);
     }
 
+
+    // EFFECTS: displays menu of options to user
     private void displayMenu() {
         System.out.println("\nProperty List Application");
         System.out.println("\nSelect from:");
@@ -70,9 +95,36 @@ public class PropertyListApp {
         System.out.println("\t5 -> get a list of properties in the specified city");
         System.out.println("\t6 -> get a list of properties in the specified price range");
         System.out.println("\t7 -> get a list of properties in the specified city and price range");
+        System.out.println("\ts -> save property list to file");
+        System.out.println("\tl -> load property list from file");
         System.out.println("\tq -> quit");
     }
 
+    // EFFECTS: saves the property list to file
+    private void savePropertyList() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(propertyList);
+            jsonWriter.close();
+            System.out.println("Saved " + propertyList.getListName() + " to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: loads the property list from file
+    private void loadPropertyList() {
+        try {
+            propertyList = jsonReader.read();
+            System.out.println("Loaded " + propertyList.getListName() + " from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
+        }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: after user input the property information, add that property to the property list
     private void createProperty() {
         System.out.print("Enter property address:");
         input.nextLine();
@@ -88,6 +140,9 @@ public class PropertyListApp {
 
     }
 
+    // REQUIRES: propertyIndex >= 0 and propertyIndex < size of propertyList
+    // MODIFIES: this
+    // EFFECTS: mark the property with the given propertyIndex as sold
     private void markPropertyAsSold() {
         System.out.print("Which property would you like to mark as Sold? Please enter Property Index:");
         int propertyIndex = input.nextInt();
@@ -105,6 +160,9 @@ public class PropertyListApp {
 
     }
 
+    // REQUIRES: propertyIndex >= 0 and propertyIndex < size of propertyList
+    // MODIFIES: this
+    // EFFECTS: remove the property with the given propertyIndex form the list
     private void removeProperty() {
         System.out.print("Which property would you like to remove? Please enter Property Index:");
         int propertyIndex = input.nextInt();
@@ -117,7 +175,7 @@ public class PropertyListApp {
 
     }
 
-
+    // EFFECTS: prints the entire property list
     private void viewPropertyList() {
         int propertyIndex = 0;
         List<Property> propertyList = this.propertyList.getPropertyList();
@@ -131,6 +189,7 @@ public class PropertyListApp {
         }
     }
 
+    // EFFECTS: print a list of property in the given city
     private void viewPropertyListInCity() {
         System.out.print("Which city you want to view a list of properties in:");
         String city = input.next();
@@ -144,6 +203,9 @@ public class PropertyListApp {
     }
 
 
+    // REQUIRES: minPrice >= 0, maxPrice >= 0, minPrice < maxPrice
+    // EFFECTS: print a list of property in the given price range (has a price more than the minPrice
+    // and less than maxPrice)
     private void viewPropertyListInPriceRange() {
         System.out.print("What is the minimum price you want to view a list of properties in");
         int minPrice = input.nextInt();
@@ -158,6 +220,9 @@ public class PropertyListApp {
         }
     }
 
+    // REQUIRES: minPrice >= 0, maxPrice >= 0, minPrice < maxPrice
+    // EFFECTS: return a list of property in the given city and price range (has a price more than the minPrice
+    // and less than maxPrice)
     private void viewPropertyListCityAndPrice() {
         System.out.print("Which city you want to view a list of properties in:");
         String city = input.next();
@@ -173,7 +238,6 @@ public class PropertyListApp {
             System.out.println("--------------------");
         }
     }
-
 
 
     // EFFECTS: prints a property's address, city, price, owner name, and sold status
@@ -197,7 +261,6 @@ public class PropertyListApp {
     }
 
 }
-
 
 
 

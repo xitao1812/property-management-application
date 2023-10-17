@@ -1,19 +1,31 @@
 package model;
 
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class PropertyList {
-    private final List<Property> propertyList;
+// Represents a property list
+public class PropertyList implements Writable {
+    private String listName;
+    private List<Property> propertyList;
     private List<Property> propertyListInCity;
     private List<Property> propertyListInRange;
     private List<Property> propertyListCityAndPriceRange;
 
 
     // EFFECTS: Construct a property list
-    public PropertyList() {
+    public PropertyList(String listName) {
+        this.listName = listName;
         this.propertyList = new ArrayList<>();
+    }
+
+    // EFFECTS: return the property list's name
+    public String getListName() {
+        return listName;
     }
 
     // EFFECTS: return the property list
@@ -95,6 +107,25 @@ public class PropertyList {
     // EFFECTS: return the property in the property list based on propertyIndex
     public Property get(int propertyIndex) {
         return propertyList.get(propertyIndex);
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("name", listName);
+        json.put("properties", listToJson());
+        return json;
+    }
+
+    // EFFECTS: returns properties in this property list as a JSON array
+    private JSONArray listToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Property p : propertyList) {
+            jsonArray.put(p.toJson());
+        }
+
+        return jsonArray;
     }
 
 

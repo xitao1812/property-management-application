@@ -22,7 +22,7 @@ public class PropertyListTest {
 
     @BeforeEach
     void runBefore() {
-        propertyList = new PropertyList();
+        propertyList = new PropertyList("Realtor' property list");
         property1 = new Property("3888 FOSTER STREET", "RICHMOND",
                 1400000, "Peter");
         property2 = new Property("6688 EDINBURGH STREET", "BURNABY",
