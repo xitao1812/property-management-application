@@ -12,7 +12,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 //Code influenced by the teller app https://github.students.cs.ubc.ca/CPSC210/TellerApp
-// Property list application
+// Represents a Property List application
 public class PropertyListApp {
     private static final String JSON_STORE = "./data/propertyList.json";
     private PropertyList propertyList;
