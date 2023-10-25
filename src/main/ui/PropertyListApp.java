@@ -20,8 +20,8 @@ public class PropertyListApp {
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
 
-    // EFFECTS: runs the property list application
-    public PropertyListApp()  {
+    // EFFECTS: constructs the property list and runs application
+    public PropertyListApp() throws FileNotFoundException {
         input = new Scanner(System.in);
         propertyList = new PropertyList("Realtor's property list");
         jsonWriter = new JsonWriter(JSON_STORE);
