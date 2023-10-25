@@ -142,7 +142,7 @@ public class PropertyListApp {
 
     // REQUIRES: propertyIndex >= 0 and propertyIndex < size of propertyList
     // MODIFIES: this
-    // EFFECTS: mark the property with the given propertyIndex as sold
+    // EFFECTS: mark the property with the given propertyIndex as sold and update the owner name to new owner
     private void markPropertyAsSold() {
         System.out.print("Which property would you like to mark as Sold? Please enter Property Index:");
         int propertyIndex = input.nextInt();
@@ -221,7 +221,7 @@ public class PropertyListApp {
     }
 
     // REQUIRES: minPrice >= 0, maxPrice >= 0, minPrice < maxPrice
-    // EFFECTS: return a list of property in the given city and price range (has a price more than the minPrice
+    // EFFECTS: print a list of property in the given city and price range (has a price more than the minPrice
     // and less than maxPrice)
     private void viewPropertyListCityAndPrice() {
         System.out.print("Which city you want to view a list of properties in:");
