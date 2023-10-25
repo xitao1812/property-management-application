@@ -11,6 +11,7 @@ import persistence.JsonWriter;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+//Code influenced by the teller app https://github.students.cs.ubc.ca/CPSC210/TellerApp
 // Property list application
 public class PropertyListApp {
     private static final String JSON_STORE = "./data/propertyList.json";
@@ -19,7 +20,6 @@ public class PropertyListApp {
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
 
-    // Referenced the Teller App runTeller code
     // EFFECTS: runs the property list application
     public PropertyListApp()  {
         input = new Scanner(System.in);
@@ -124,7 +124,7 @@ public class PropertyListApp {
     }
 
     // MODIFIES: this
-    // EFFECTS: after user input the property information, add that property to the property list
+    // EFFECTS: prompt user for property address, city, price, ownerName, and add the property to the property list
     private void createProperty() {
         System.out.print("Enter property address:");
         input.nextLine();

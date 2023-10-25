@@ -10,6 +10,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
+// Represents a reader that reads property list from JSON data stored in file
 public class JsonReaderTest extends JsonTest {
 
     @Test

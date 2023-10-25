@@ -68,6 +68,7 @@ public class Property implements Writable {
         this.isSold = true;
     }
 
+    // EFFECTS: returns a property as JSON object
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();

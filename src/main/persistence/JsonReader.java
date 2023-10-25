@@ -11,6 +11,7 @@ import java.util.stream.Stream;
 
 import org.json.*;
 
+//Code influenced by the JsonSerizalizationDemo https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
 // Represents a reader that reads property list from JSON data stored in file
 public class JsonReader {
     private String source;

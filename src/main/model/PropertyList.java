@@ -17,7 +17,7 @@ public class PropertyList implements Writable {
     private List<Property> propertyListCityAndPriceRange;
 
 
-    // EFFECTS: Construct a property list
+    // EFFECTS: Construct a property list with a list name and empty list of property
     public PropertyList(String listName) {
         this.listName = listName;
         this.propertyList = new ArrayList<>();
@@ -98,7 +98,7 @@ public class PropertyList implements Writable {
         return propertyList.contains(property);
     }
 
-    // EFFECTS: return the size of the property list
+    // EFFECTS: return the number of property in the property list
     public int size() {
         return propertyList.size();
     }
@@ -109,6 +109,8 @@ public class PropertyList implements Writable {
         return propertyList.get(propertyIndex);
     }
 
+
+    // EFFECTS:  returns a property list as JSON object
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
