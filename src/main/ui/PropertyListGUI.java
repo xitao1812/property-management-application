@@ -35,7 +35,7 @@ public class PropertyListGUI extends JFrame implements ActionListener {
 
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setPreferredSize(new Dimension(800, 300));
-        ((JPanel) getContentPane()).setBorder(new EmptyBorder(13, 13, 13, 13) );
+        ((JPanel) getContentPane()).setBorder(new EmptyBorder(13, 13, 13, 13));
         setLayout(null);
 
         // so that when the btn is clicked,
