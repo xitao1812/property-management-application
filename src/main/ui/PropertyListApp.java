@@ -136,7 +136,7 @@ public class PropertyListApp {
         System.out.print("Enter property price : $");
         int price = input.nextInt();
 
-        propertyList.addProperty(new Property(address, city, price, ownerName));
+        propertyList.addProperty(new Property(address, city, price, ownerName, false));
 
     }
 

@@ -15,12 +15,12 @@ public class Property implements Writable {
     // REQUIRES: price > 0; address, city, and owner name have a non-zero length
     // MODIFIES: this
     // EFFECTS: construct a property with given address, city, price(in $), owner name
-    public Property(String address, String city, int price, String ownerName) {
+    public Property(String address, String city, int price, String ownerName, boolean isSold) {
         this.address = address;
         this.city = city;
         this.price = price;
         this.ownerName = ownerName;
-        this.isSold = false;
+        this.isSold = isSold;
     }
 
     // EFFECTS: return the address of the property
@@ -76,7 +76,7 @@ public class Property implements Writable {
         json.put("city", city);
         json.put("price", price);
         json.put("ownerName", ownerName);
-        json.put("isSold", false);
+        json.put("isSold", isSold);
         return json;
     }
 

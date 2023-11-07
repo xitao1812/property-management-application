@@ -49,9 +49,9 @@ public class JsonWriterTest extends JsonTest {
         try {
             PropertyList pl = new PropertyList("Realtor's property list");
             pl.addProperty(new Property("3888 FOSTER STREET", "RICHMOND",
-                    1400000, "Peter"));
+                    1400000, "Peter", false));
             pl.addProperty(new Property("3038 MANITOBA STREET", "BURNABY",
-                    900000, "Jason"));
+                    900000, "Jason", false));
             JsonWriter writer = new JsonWriter("./data/testWriterGeneralPropertyList.json");
             writer.open();
             writer.write(pl);

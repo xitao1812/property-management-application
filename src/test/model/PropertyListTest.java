@@ -24,17 +24,17 @@ public class PropertyListTest {
     void runBefore() {
         propertyList = new PropertyList("Realtor' property list");
         property1 = new Property("3888 FOSTER STREET", "RICHMOND",
-                1400000, "Peter");
+                1400000, "Peter", false);
         property2 = new Property("6688 EDINBURGH STREET", "BURNABY",
-                17000000, "Sally");
+                17000000, "Sally", false);
         property3 = new Property("4406 DAWSON STREET", "BURNABY",
-                1000000, "Linda");
+                1000000, "Linda", false);
         property4 = new Property("6038 FRASER STREET", "VANCOUVER",
-                1300000, "Jerry");
+                1300000, "Jerry", false);
         property5 = new Property("6038 FLEMING STREET", "BURNABY",
-                1200000, "David");
+                1200000, "David", false);
         property6 = new Property("3038 MANITOBA STREET", "BURNABY",
-                900000, "Jason");
+                900000, "Jason", false);
     }
 
     @Test

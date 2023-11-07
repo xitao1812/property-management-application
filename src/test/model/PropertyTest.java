@@ -13,9 +13,9 @@ public class PropertyTest {
     @BeforeEach
     void runBefore() {
         property1 = new Property("2686 18TH AVE E", "VANCOUVER",
-                1400000, "Peter");
+                1400000, "Peter", false);
         property2 = new Property("6688 EDINBURGH STREET", "BURNABY",
-                1700000, "Sally");
+                1700000, "Sally", false);
     }
 
     @Test

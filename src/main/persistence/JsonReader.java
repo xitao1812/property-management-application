@@ -65,7 +65,8 @@ public class JsonReader {
         String city = jsonObject.getString("city");
         int price = jsonObject.getInt("price");
         String ownerName = jsonObject.getString("ownerName");
-        Property property = new Property(address, city, price, ownerName);
+        Boolean isSold = jsonObject.getBoolean("isSold");
+        Property property = new Property(address, city, price, ownerName, isSold);
         pl.addProperty(property);
     }
 }
