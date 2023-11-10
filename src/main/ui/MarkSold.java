@@ -14,7 +14,8 @@ public class MarkSold extends JFrame implements ActionListener {
     private JFrame frame;
     private JLabel displayField;
     private PropertyList propertyList;
-    private JTextField fieldIndex;
+    private JTextField fieldIndex1;
+    private JTextField fieldIndex2;
     private CongratulationGUI photoArea;
     private ImageIcon image;
     private ViewList viewList;
@@ -26,25 +27,14 @@ public class MarkSold extends JFrame implements ActionListener {
         this.viewList = viewList;
 
 
-
-
-
-
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setPreferredSize(new Dimension(800, 500));
+        setPreferredSize(new Dimension(600, 400));
         ((JPanel) getContentPane()).setBorder(new EmptyBorder(13, 13, 13, 13));
-        setLayout(new FlowLayout());
+        setLayout(null);
 
-
-        JLabel labelInfo = new JLabel("Please enter property index that you want to mark as sold");
-        labelInfo.setBounds(50, 10, 400, 30);
-
-        add(labelInfo);
+        this.setLabel();
         this.setField();
         this.setButton();
-
-
-        //createCongratulation();
 
         pack();
         setLocationRelativeTo(null);
@@ -52,11 +42,29 @@ public class MarkSold extends JFrame implements ActionListener {
         setResizable(false);
     }
 
+    // EFFECTS: constructs the labels for address, city, price, owner name, and price
+    public void setLabel() {
+        JLabel labelInfo = new JLabel("Please enter property index that you want to mark as sold");
+        labelInfo.setBounds(50, 40, 400, 30);
+
+        add(labelInfo);
+
+        JLabel labelOwner = new JLabel("What is the new owner name?");
+        labelOwner.setBounds(50, 100, 400, 30);
+
+        add(labelOwner);
+
+    }
+
     // EFFECTS: constructs the input fields
     public void setField() {
-        fieldIndex = new JTextField(30);
-        fieldIndex.setBounds(50, 50, 200, 30);
-        add(fieldIndex);
+        fieldIndex1 = new JTextField(30);
+        fieldIndex1.setBounds(50, 70, 200, 30);
+        add(fieldIndex1);
+
+        fieldIndex2 = new JTextField(30);
+        fieldIndex2.setBounds(50, 130, 200, 30);
+        add(fieldIndex2);
 
 
     }
@@ -67,21 +75,25 @@ public class MarkSold extends JFrame implements ActionListener {
         btnAdd.setActionCommand("confirm");
         btnAdd.addActionListener(this);
         add(btnAdd);
-        btnAdd.setBounds(50, 110, 200, 30);
+        btnAdd.setBounds(50, 180, 200, 30);
 
         JButton btnView = new JButton("View List");
         btnView.setActionCommand("viewList");
         btnView.addActionListener(this);
         add(btnView);
-        btnView.setBounds(300, 110, 200, 30);
+        btnView.setBounds(300, 180, 200, 30);
 
     }
 
     // EFFECTS: calls corresponding methods when the JButton btn is clicked
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("confirm")) {
-            int index = Integer.parseInt(fieldIndex.getText());
+            int index = Integer.parseInt(fieldIndex1.getText());
             propertyList.markPropertyAsSold(index);
+            String newOwnerName = fieldIndex2.getText();
+            Property soldProperty = propertyList.get(index);
+            soldProperty.setOwnerName(newOwnerName);
+
             viewList.dispose();
             new ViewList(propertyList);
             new CongratulationGUI();

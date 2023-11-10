@@ -6,13 +6,13 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
-
+// Represents a Congratulation GUI
 public class CongratulationGUI extends JPanel {
     private JFrame frame;
     private JLabel displayField;
     private ImageIcon image;
 
-
+    // EFFECTS: constructs the Congratulation picture
     public CongratulationGUI() {
 
         frame = new JFrame();
