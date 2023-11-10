@@ -8,6 +8,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+//Code influenced by stackoverflow example https://stackoverflow.com/questions/6578205/
+//                                         swing-jlabel-text-change-on-the-running-application
+// Represents a Add Property List GUI
 public class AddProperty extends JFrame implements ActionListener {
     private PropertyList propertyList;
     private JLabel labelAddress;
@@ -21,7 +24,7 @@ public class AddProperty extends JFrame implements ActionListener {
     private ViewList viewList;
 
 
-
+    // EFFECTS: constructs the add property labels and buttons
     public AddProperty(ViewList viewList, PropertyList propertyList) {
         super("Add a property");
         this.propertyList = propertyList;
@@ -30,11 +33,6 @@ public class AddProperty extends JFrame implements ActionListener {
         setPreferredSize(new Dimension(800, 300));
         ((JPanel) getContentPane()).setBorder(new EmptyBorder(13, 13, 13, 13));
         setLayout(null);
-
-        // so that when the btn is clicked,
-        // this.actionPerformed(ActionEvent e) will be called.
-        // You could also set a different object, if you wanted
-        // a different object to respond to the button click
 
         JLabel labelInfo = new JLabel("Please enter property information");
         labelInfo.setBounds(50, 10, 400, 30);
@@ -45,13 +43,13 @@ public class AddProperty extends JFrame implements ActionListener {
         this.setField();
         this.setButton();
 
-
         pack();
         setLocationRelativeTo(null);
         setVisible(true);
         setResizable(false);
     }
 
+    // EFFECTS: constructs the labels for address, city, price, owner name, and price
     public void setLabel() {
         labelAddress = new JLabel("Address:");
         add(labelAddress);
@@ -71,6 +69,7 @@ public class AddProperty extends JFrame implements ActionListener {
 
     }
 
+    // EFFECTS: constructs the input fields
     public void setField() {
         fieldAddress = new JTextField(30);
         fieldAddress.setBounds(50, 50, 200, 30);
@@ -89,6 +88,7 @@ public class AddProperty extends JFrame implements ActionListener {
         add(fieldPrice);
     }
 
+    // EFFECTS: constructs the buttons
     public void setButton() {
         JButton btnAdd = new JButton("Finish");
         btnAdd.setActionCommand("addProperty");
@@ -106,7 +106,7 @@ public class AddProperty extends JFrame implements ActionListener {
 
     }
 
-    //This is the method that is called when the JButton btn is clicked
+    // EFFECTS: calls corresponding methods when the JButton btn is clicked
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("addProperty")) {
             String address = fieldAddress.getText();
@@ -121,6 +121,7 @@ public class AddProperty extends JFrame implements ActionListener {
             new ViewList(propertyList);
         }
     }
+
 
     public static void main(String[] args) {
         new PropertyListGUI();

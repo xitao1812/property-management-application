@@ -15,8 +15,8 @@ import java.util.List;
 import persistence.JsonReader;
 import persistence.JsonWriter;
 
-// Represents a Property List GUI
 
+// Represents a Property List GUI
 public class PropertyListGUI extends JFrame implements ActionListener {
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
@@ -26,7 +26,7 @@ public class PropertyListGUI extends JFrame implements ActionListener {
     private JTextField field2;
     private PropertyList propertyList = new PropertyList("Realtor' property list");
 
-
+    // EFFECTS: constructs the property list and runs application
     public PropertyListGUI() {
         super("Property List");
 
@@ -38,10 +38,7 @@ public class PropertyListGUI extends JFrame implements ActionListener {
         ((JPanel) getContentPane()).setBorder(new EmptyBorder(13, 13, 13, 13));
         setLayout(null);
 
-        // so that when the btn is clicked,
-        // this.actionPerformed(ActionEvent e) will be called.
-        // You could also set a different object, if you wanted
-        // a different object to respond to the button click
+
         label = new JLabel("Property");
         JLabel labelOptions = new JLabel("Please select from the following options");
         labelOptions.setBounds(50, 10, 400, 30);
@@ -60,7 +57,7 @@ public class PropertyListGUI extends JFrame implements ActionListener {
 
 
 
-
+    // EFFECTS: constructs the buttons in the application
     public void setButton() {
         JButton btnAdd = new JButton("Add property");
         btnAdd.setActionCommand("addProperty");
@@ -89,7 +86,7 @@ public class PropertyListGUI extends JFrame implements ActionListener {
         btnLoad.setBounds(500, 30, 150, 30);
     }
 
-    //This is the method that is called when the JButton btn is clicked
+    // EFFECTS: calls corresponding methods when the JButton btn is clicked
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("addProperty")) {
             new AddProperty(new ViewList(propertyList), propertyList);
@@ -97,7 +94,6 @@ public class PropertyListGUI extends JFrame implements ActionListener {
             new ViewList(propertyList);
         } else if (e.getActionCommand().equals("save")) {
             savePropertyList();
-            //PropertyListApp.savePropertyList();
         } else if (e.getActionCommand().equals("load")) {
             loadPropertyList();
         }

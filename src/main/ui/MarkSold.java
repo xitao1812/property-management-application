@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
+// Represents a mark as sold GUI
 public class MarkSold extends JFrame implements ActionListener {
     private JFrame frame;
     private JLabel displayfield;
@@ -18,6 +19,7 @@ public class MarkSold extends JFrame implements ActionListener {
     private ImageIcon image;
     private ViewList viewList;
 
+    // EFFECTS: constructs the mark as sold
     public MarkSold(ViewList viewList, PropertyList propertyList) {
         super("Mark a property as sold");
         this.propertyList = propertyList;
@@ -35,10 +37,6 @@ public class MarkSold extends JFrame implements ActionListener {
         ((JPanel) getContentPane()).setBorder(new EmptyBorder(13, 13, 13, 13));
         setLayout(new FlowLayout());
 
-        // so that when the btn is clicked,
-        // this.actionPerformed(ActionEvent e) will be called.
-        // You could also set a different object, if you wanted
-        // a different object to respond to the button click
 
         JLabel labelInfo = new JLabel("Please enter property index that you want to mark as sold");
         labelInfo.setBounds(50, 10, 400, 30);
@@ -56,7 +54,7 @@ public class MarkSold extends JFrame implements ActionListener {
         setResizable(false);
     }
 
-
+    // EFFECTS: constructs the input fields
     public void setField() {
         fieldIndex = new JTextField(30);
         fieldIndex.setBounds(50, 50, 200, 30);
@@ -65,29 +63,29 @@ public class MarkSold extends JFrame implements ActionListener {
 
     }
 
+    // EFFECTS: constructs the buttons
     public void setButton() {
         JButton btnAdd = new JButton("Confirm");
         btnAdd.setActionCommand("confirm");
-        btnAdd.addActionListener(this); // Sets "this" object as an action listener for btn
+        btnAdd.addActionListener(this);
         add(btnAdd);
         btnAdd.setBounds(50, 110, 200, 30);
 
         JButton btnView = new JButton("View List");
         btnView.setActionCommand("viewList");
-        btnView.addActionListener(this); // Sets "this" object as an action listener for btn
+        btnView.addActionListener(this);
         add(btnView);
         btnView.setBounds(300, 110, 200, 30);
 
     }
 
-    //This is the method that is called when the JButton btn is clicked
+    // EFFECTS: calls corresponding methods when the JButton btn is clicked
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("confirm")) {
             int index = Integer.parseInt(fieldIndex.getText());
             propertyList.markPropertyAsSold(index);
             viewList.dispose();
             new ViewList(propertyList);
-            //dispose();
 
             //TODO
             createCongratulation();
@@ -97,6 +95,7 @@ public class MarkSold extends JFrame implements ActionListener {
         }
     }
 
+    // EFFECTS: add a "congratulation" picture to the gui
     private void createCongratulation() {
         photoArea = new CongratulationGUI(this);
         add(photoArea, BorderLayout.CENTER);

@@ -22,12 +22,12 @@ import java.awt.Dimension;
 
 //Code influenced by the Oracle https://docs.oracle.com/javase/tutorial/uiswing/examples/components/
 //                              TableRenderDemoProject/src/components/TableRenderDemo.java
-//
+// Represents a View Property List GUI
 public class ViewList extends JFrame implements ActionListener {
     private static PropertyList propertyList;
     private MyTableModel model;
 
-
+    // EFFECTS: constructs the view list
     public ViewList(PropertyList propertyList) {
 
         super("View List");
@@ -38,7 +38,6 @@ public class ViewList extends JFrame implements ActionListener {
         table.setPreferredScrollableViewportSize(new Dimension(500, 300));
         table.setFillsViewportHeight(true);
 
-        //Create the scroll pane and add the table to it.
         JScrollPane scrollPane = new JScrollPane(table);
         initColumnSizes(table);
         add(scrollPane);
@@ -53,10 +52,7 @@ public class ViewList extends JFrame implements ActionListener {
         JLabel labelInfo = new JLabel("Property List");
         labelInfo.setBounds(50, 10, 400, 30);
 
-
         add(labelInfo);
-
-        //this.printPropertyList();
 
         this.setButton();
 
@@ -66,7 +62,7 @@ public class ViewList extends JFrame implements ActionListener {
         setResizable(false);
     }
 
-    // EFFECTS: prints a property's address, city, price, owner name, and sold status
+    // EFFECTS: constructs a table with columns index, address, city, price, owner name, price, and sold status
     private void initColumnSizes(JTable table) {
         MyTableModel model = (MyTableModel)table.getModel();
         TableColumn column = null;
@@ -96,7 +92,7 @@ public class ViewList extends JFrame implements ActionListener {
     }
 
 
-
+    // EFFECTS: prints properties' index, address, city, price, owner name, and sold status to table
     public void addPropertyToTable() {
         int i = 0;
         for (Property property : propertyList.getPropertyList()) {
@@ -116,11 +112,7 @@ public class ViewList extends JFrame implements ActionListener {
 
 
 
-
-
-
-
-
+    // EFFECTS: constructs the buttons in the application
     public void setButton() {
         JButton btnAdd = new JButton("Add a new property");
         btnAdd.setActionCommand("addProperty");
@@ -141,7 +133,7 @@ public class ViewList extends JFrame implements ActionListener {
 
     }
 
-    //This is the method that is called when the JButton btn is clicked
+    // EFFECTS: calls corresponding methods when the JButton btn is clicked
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("addProperty")) {
             new AddProperty(this, propertyList);
@@ -153,5 +145,6 @@ public class ViewList extends JFrame implements ActionListener {
     public static void main(String[] args) {
         new ViewList(propertyList);
     }
+
 }
 
