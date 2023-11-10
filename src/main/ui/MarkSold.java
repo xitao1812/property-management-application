@@ -12,7 +12,7 @@ import java.awt.event.ActionListener;
 // Represents a mark as sold GUI
 public class MarkSold extends JFrame implements ActionListener {
     private JFrame frame;
-    private JLabel displayfield;
+    private JLabel displayField;
     private PropertyList propertyList;
     private JTextField fieldIndex;
     private CongratulationGUI photoArea;
@@ -25,11 +25,9 @@ public class MarkSold extends JFrame implements ActionListener {
         this.propertyList = propertyList;
         this.viewList = viewList;
 
-        //How to add image
-        frame = new JFrame();
-        image = new ImageIcon(getClass().getResource("congrat.png"));
-        displayfield = new JLabel(image);
-        frame.add(displayfield);
+
+
+
 
 
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -86,23 +84,14 @@ public class MarkSold extends JFrame implements ActionListener {
             propertyList.markPropertyAsSold(index);
             viewList.dispose();
             new ViewList(propertyList);
-
-            //TODO
-            createCongratulation();
+            new CongratulationGUI();
 
         } else if (e.getActionCommand().equals("viewList")) {
             new ViewList(propertyList);
         }
     }
 
-    // EFFECTS: add a "congratulation" picture to the gui
-    private void createCongratulation() {
-        photoArea = new CongratulationGUI(this);
-        add(photoArea, BorderLayout.CENTER);
 
-        photoArea.setBounds(50, 250,300,100);
-        //revalidate();
-    }
 
     public static void main(String[] args) {
         new PropertyListGUI();
