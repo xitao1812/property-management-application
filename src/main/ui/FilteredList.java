@@ -1,6 +1,5 @@
 package ui;
 
-
 import model.Property;
 import model.PropertyList;
 import javax.swing.*;
@@ -9,7 +8,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
-
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -22,27 +20,25 @@ import java.awt.Dimension;
 
 //Code influenced by the Oracle https://docs.oracle.com/javase/tutorial/uiswing/examples/components/
 //                              TableRenderDemoProject/src/components/TableRenderDemo.java
-// Represents a View Property List GUI
-public class ViewList extends JFrame implements ActionListener {
+// Represents a Filtered Property List GUI
+public class FilteredList extends JFrame implements ActionListener {
+    private static List<Property> filteredList;
     private static PropertyList propertyList;
     private MyTableModel model;
 
-    // EFFECTS: constructs the view list
-    public ViewList(PropertyList propertyList) {
-
-        super("View List");
+    // EFFECTS: constructs the filtered list
+    public FilteredList(List<Property> filteredList, PropertyList propertyList) {
+        super("Filtered List");
+        this.filteredList = filteredList;
         this.propertyList = propertyList;
-
         model = new MyTableModel();
         JTable table = new JTable(model);
         table.setPreferredScrollableViewportSize(new Dimension(500, 300));
         table.setFillsViewportHeight(true);
-
         JScrollPane scrollPane = new JScrollPane(table);
         initColumnSizes(table);
         add(scrollPane);
         scrollPane.setBounds(50, 50, 700, 300);
-
         this.addPropertyToTable();
 
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -50,13 +46,7 @@ public class ViewList extends JFrame implements ActionListener {
         ((JPanel) getContentPane()).setBorder(new EmptyBorder(13, 13, 13, 13));
         setLayout(null);
 
-        JLabel labelInfo = new JLabel("Property List");
-        labelInfo.setBounds(50, 10, 400, 30);
-
-        add(labelInfo);
-
         this.setButton();
-
         pack();
         setLocationRelativeTo(null);
         setVisible(true);
@@ -96,7 +86,7 @@ public class ViewList extends JFrame implements ActionListener {
     // EFFECTS: prints properties' index, address, city, price, owner name, and sold status to table
     public void addPropertyToTable() {
         int i = 0;
-        for (Property property : propertyList.getPropertyList()) {
+        for (Property property : filteredList) {
             Object[] tableRow = new Object[] {
                     i,
                     property.getAddress(),
@@ -115,48 +105,28 @@ public class ViewList extends JFrame implements ActionListener {
 
     // EFFECTS: constructs the buttons in the application
     public void setButton() {
-        JButton btnAdd = new JButton("Add a new property");
-        btnAdd.setActionCommand("addProperty");
+        JButton btnAdd = new JButton("Return to full list");
+        btnAdd.setActionCommand("return");
         btnAdd.addActionListener(this); // Sets "this" object as an action listener for btn
         add(btnAdd);
         btnAdd.setBounds(20, 400, 200, 30);
 
-        JButton btnRemove = new JButton("Remove a property");
-        btnRemove.setActionCommand("removeProperty");
-        btnRemove.addActionListener(this); // Sets "this" object as an action listener for btn
-        add(btnRemove);
-        btnRemove.setBounds(20, 450, 200, 30);
 
-        JButton btnMark = new JButton("Mark a property as sold");
-        btnMark.setActionCommand("mark");
-        btnMark.addActionListener(this); // Sets "this" object as an action listener for btn
-        add(btnMark);
-        btnMark.setBounds(230, 400, 280, 30);
-
-        JButton btnFilter = new JButton("Filter based on price and location");
-        btnFilter.setActionCommand("filter");
-        btnFilter.addActionListener(this); // Sets "this" object as an action listener for btn
-        add(btnFilter);
-        btnFilter.setBounds(230, 450, 280, 30);
 
     }
 
     // EFFECTS: calls corresponding methods when the JButton btn is clicked
     public void actionPerformed(ActionEvent e) {
-        if (e.getActionCommand().equals("addProperty")) {
-            new AddProperty(this, propertyList);
-        } else if (e.getActionCommand().equals("removeProperty")) {
-            new RemoveProperty(this, propertyList);
-        } else if (e.getActionCommand().equals("mark")) {
-            new MarkSold(this, propertyList);
-        } else if (e.getActionCommand().equals("filter")) {
-            new Filter(this, propertyList);
+        if (e.getActionCommand().equals("return")) {
+            this.dispose();
+            new ViewList(propertyList);
         }
     }
 
     public static void main(String[] args) {
-        new ViewList(propertyList);
+        new FilteredList(filteredList, propertyList);
     }
 
 }
+
 

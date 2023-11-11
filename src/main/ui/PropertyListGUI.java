@@ -22,8 +22,6 @@ public class PropertyListGUI extends JFrame implements ActionListener {
     private JsonReader jsonReader;
     private static final String JSON_STORE = "./data/propertyList.json";
     private JLabel label;
-    private JTextField field;
-    private JTextField field2;
     private PropertyList propertyList = new PropertyList("Realtor' property list");
 
     // EFFECTS: constructs the property list and runs application
@@ -43,11 +41,8 @@ public class PropertyListGUI extends JFrame implements ActionListener {
         JLabel labelOptions = new JLabel("Please select from the following options");
         labelOptions.setBounds(50, 10, 400, 30);
 
-
         add(labelOptions);
         this.setButton();
-
-
 
         pack();
         setLocationRelativeTo(null);

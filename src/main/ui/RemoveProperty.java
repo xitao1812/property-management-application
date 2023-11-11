@@ -9,20 +9,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
-// Represents a mark as sold GUI
-public class MarkSold extends JFrame implements ActionListener {
-    private JFrame frame;
-    private JLabel displayField;
+// Represents a remove property GUI
+public class RemoveProperty extends JFrame implements ActionListener {
     private PropertyList propertyList;
     private JTextField fieldIndex1;
-    private JTextField fieldIndex2;
-    private CongratulationGUI photoArea;
-    private ImageIcon image;
     private ViewList viewList;
 
-    // EFFECTS: constructs the mark as sold
-    public MarkSold(ViewList viewList, PropertyList propertyList) {
-        super("Mark a property as sold");
+    // EFFECTS: constructs the remove property page
+    public RemoveProperty(ViewList viewList, PropertyList propertyList) {
+        super("Remove a property");
         this.propertyList = propertyList;
         this.viewList = viewList;
 
@@ -44,15 +39,10 @@ public class MarkSold extends JFrame implements ActionListener {
 
     // EFFECTS: constructs the labels
     public void setLabel() {
-        JLabel labelInfo = new JLabel("Please enter property index that you want to mark as sold");
+        JLabel labelInfo = new JLabel("Please enter property index that you want to remove");
         labelInfo.setBounds(50, 40, 400, 30);
 
         add(labelInfo);
-
-        JLabel labelOwner = new JLabel("What is the new owner name?");
-        labelOwner.setBounds(50, 100, 400, 30);
-
-        add(labelOwner);
 
     }
 
@@ -61,11 +51,6 @@ public class MarkSold extends JFrame implements ActionListener {
         fieldIndex1 = new JTextField(30);
         fieldIndex1.setBounds(50, 70, 200, 30);
         add(fieldIndex1);
-
-        fieldIndex2 = new JTextField(30);
-        fieldIndex2.setBounds(50, 130, 200, 30);
-        add(fieldIndex2);
-
 
     }
 
@@ -77,11 +62,6 @@ public class MarkSold extends JFrame implements ActionListener {
         add(btnConfirm);
         btnConfirm.setBounds(50, 180, 200, 30);
 
-        JButton btnView = new JButton("View List");
-        btnView.setActionCommand("viewList");
-        btnView.addActionListener(this);
-        add(btnView);
-        btnView.setBounds(300, 180, 200, 30);
 
     }
 
@@ -89,17 +69,11 @@ public class MarkSold extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("confirm")) {
             int index = Integer.parseInt(fieldIndex1.getText());
-            propertyList.markPropertyAsSold(index);
-            String newOwnerName = fieldIndex2.getText();
-            Property soldProperty = propertyList.get(index);
-            soldProperty.setOwnerName(newOwnerName);
+            propertyList.removeProperty(index);
             this.dispose();
             viewList.dispose();
             new ViewList(propertyList);
-            new CongratulationGUI();
 
-        } else if (e.getActionCommand().equals("viewList")) {
-            new ViewList(propertyList);
         }
     }
 
@@ -109,3 +83,4 @@ public class MarkSold extends JFrame implements ActionListener {
         new PropertyListGUI();
     }
 }
+

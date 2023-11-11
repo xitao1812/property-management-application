@@ -7,25 +7,23 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 
-// Represents a mark as sold GUI
-public class MarkSold extends JFrame implements ActionListener {
-    private JFrame frame;
-    private JLabel displayField;
+// Represents a filter based on price and location GUI
+public class Filter extends JFrame implements ActionListener {
+
     private PropertyList propertyList;
     private JTextField fieldIndex1;
     private JTextField fieldIndex2;
-    private CongratulationGUI photoArea;
-    private ImageIcon image;
+    private JTextField fieldIndex3;
     private ViewList viewList;
 
     // EFFECTS: constructs the mark as sold
-    public MarkSold(ViewList viewList, PropertyList propertyList) {
-        super("Mark a property as sold");
+    public Filter(ViewList viewList, PropertyList propertyList) {
+        super("Filtered List");
         this.propertyList = propertyList;
         this.viewList = viewList;
-
 
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setPreferredSize(new Dimension(600, 400));
@@ -44,15 +42,20 @@ public class MarkSold extends JFrame implements ActionListener {
 
     // EFFECTS: constructs the labels
     public void setLabel() {
-        JLabel labelInfo = new JLabel("Please enter property index that you want to mark as sold");
-        labelInfo.setBounds(50, 40, 400, 30);
+        JLabel labelCity = new JLabel("Which city you want to view a list of properties in?");
+        labelCity.setBounds(50, 40, 500, 30);
 
-        add(labelInfo);
+        add(labelCity);
 
-        JLabel labelOwner = new JLabel("What is the new owner name?");
-        labelOwner.setBounds(50, 100, 400, 30);
+        JLabel labelMin = new JLabel("What is the minimum price you want to view a list of properties in?");
+        labelMin.setBounds(50, 100, 500, 30);
 
-        add(labelOwner);
+        add(labelMin);
+
+        JLabel labelMax = new JLabel("What is the maximum price you want to view a list of properties in?");
+        labelMax.setBounds(50, 160, 500, 30);
+
+        add(labelMax);
 
     }
 
@@ -66,40 +69,36 @@ public class MarkSold extends JFrame implements ActionListener {
         fieldIndex2.setBounds(50, 130, 200, 30);
         add(fieldIndex2);
 
+        fieldIndex3 = new JTextField(30);
+        fieldIndex3.setBounds(50, 190, 200, 30);
+        add(fieldIndex3);
+
 
     }
 
     // EFFECTS: constructs the buttons
     public void setButton() {
-        JButton btnConfirm = new JButton("Confirm");
-        btnConfirm.setActionCommand("confirm");
-        btnConfirm.addActionListener(this);
-        add(btnConfirm);
-        btnConfirm.setBounds(50, 180, 200, 30);
+        JButton btnAdd = new JButton("Confirm");
+        btnAdd.setActionCommand("confirm");
+        btnAdd.addActionListener(this);
+        add(btnAdd);
+        btnAdd.setBounds(50, 220, 200, 30);
 
-        JButton btnView = new JButton("View List");
-        btnView.setActionCommand("viewList");
-        btnView.addActionListener(this);
-        add(btnView);
-        btnView.setBounds(300, 180, 200, 30);
+
 
     }
 
     // EFFECTS: calls corresponding methods when the JButton btn is clicked
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("confirm")) {
-            int index = Integer.parseInt(fieldIndex1.getText());
-            propertyList.markPropertyAsSold(index);
-            String newOwnerName = fieldIndex2.getText();
-            Property soldProperty = propertyList.get(index);
-            soldProperty.setOwnerName(newOwnerName);
-            this.dispose();
-            viewList.dispose();
-            new ViewList(propertyList);
-            new CongratulationGUI();
+            String city = fieldIndex1.getText();
+            int minPrice = Integer.parseInt(fieldIndex2.getText());
+            int maxPrice = Integer.parseInt(fieldIndex3.getText());
+            List<Property> filtered = propertyList.getPropertyListCityAndPrice(city, minPrice, maxPrice);
 
-        } else if (e.getActionCommand().equals("viewList")) {
-            new ViewList(propertyList);
+            viewList.dispose();
+            new FilteredList(filtered, propertyList);
+
         }
     }
 
