@@ -16,7 +16,6 @@ public class MarkSold extends JFrame implements ActionListener {
     private PropertyList propertyList;
     private JTextField fieldIndex1;
     private JTextField fieldIndex2;
-    private CongratulationGUI photoArea;
     private ImageIcon image;
     private ViewList viewList;
 
@@ -96,7 +95,6 @@ public class MarkSold extends JFrame implements ActionListener {
             this.dispose();
             viewList.dispose();
             new ViewList(propertyList);
-            new CongratulationGUI();
 
         } else if (e.getActionCommand().equals("viewList")) {
             new ViewList(propertyList);
