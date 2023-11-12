@@ -39,15 +39,12 @@ public class PropertyListGUI extends JFrame implements ActionListener {
         ((JPanel) getContentPane()).setBorder(new EmptyBorder(13, 13, 13, 13));
         setLayout(null);
 
-
         JLabel label = new JLabel("Property");
         JLabel labelOptions = new JLabel("Please select from the following options");
         labelOptions.setBounds(50, 10, 400, 30);
 
         add(labelOptions);
         this.setButton();
-
-
 
         pack();
         setLocationRelativeTo(null);

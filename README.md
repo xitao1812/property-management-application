@@ -33,7 +33,7 @@
 the Add property button
 - You can generate the second required action related to changing the sold status and new owner name 
 by clicking the Mark a property as sold button
-- You can locate my visual component by clicking the confirm button on MarkSold GUI
+- You can locate my visual component by clicking the save button and load button 
 - You can save the state of my application by clicking the save button
 - You can reload the state of my application by clicking the load button
 
