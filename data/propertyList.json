@@ -1,10 +1,26 @@
 {
     "name": "Realtor' property list",
-    "properties": [{
-        "address": "4468 Dawson St",
-        "ownerName": "Mike",
-        "city": "Burnaby",
-        "price": 850000,
-        "isSold": false
-    }]
+    "properties": [
+        {
+            "address": "4468 Dawson St",
+            "ownerName": "Mike",
+            "city": "Burnaby",
+            "price": 850000,
+            "isSold": false
+        },
+        {
+            "address": "811 - 5665 Boundary Road",
+            "ownerName": "Alex",
+            "city": "Vancouver",
+            "price": 599000,
+            "isSold": false
+        },
+        {
+            "address": "512-774 Great Northern Way",
+            "ownerName": "Kim",
+            "city": "Vancouver",
+            "price": 549000,
+            "isSold": true
+        }
+    ]
 }

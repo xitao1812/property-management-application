@@ -9,11 +9,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
+//Code influenced by stackoverflow example https://stackoverflow.com/questions/6578205/
+//                                         swing-jlabel-text-change-on-the-running-application
 // Represents a remove property GUI
 public class RemoveProperty extends JFrame implements ActionListener {
-    private PropertyList propertyList;
+    private static PropertyList propertyList;
     private JTextField fieldIndex1;
-    private ViewList viewList;
+    private static ViewList viewList;
 
     // EFFECTS: constructs the remove property page
     public RemoveProperty(ViewList viewList, PropertyList propertyList) {
@@ -80,7 +82,7 @@ public class RemoveProperty extends JFrame implements ActionListener {
 
 
     public static void main(String[] args) {
-        new PropertyListGUI();
+        new RemoveProperty(viewList, propertyList);
     }
 }
 

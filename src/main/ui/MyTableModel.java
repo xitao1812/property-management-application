@@ -14,7 +14,7 @@ public class MyTableModel extends DefaultTableModel {
             "Owner Name",
             "Sold status"};
 
-    public final Object[] longValues = {"0", "3888 FOSTER STREET", "RICHMOND",
+    public final Object[] longValues = {"0", "612 - 3888 FOSTER STREET", "RICHMOND",
             1400000, "Peter", Boolean.TRUE};
 
 

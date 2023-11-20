@@ -10,14 +10,16 @@ import java.awt.event.ActionListener;
 import java.util.List;
 
 
+//Code influenced by stackoverflow example https://stackoverflow.com/questions/6578205/
+//                                         swing-jlabel-text-change-on-the-running-application
 // Represents a filter based on price and location GUI
 public class Filter extends JFrame implements ActionListener {
 
-    private PropertyList propertyList;
+    private static PropertyList propertyList;
     private JTextField fieldIndex1;
     private JTextField fieldIndex2;
     private JTextField fieldIndex3;
-    private ViewList viewList;
+    private static ViewList viewList;
 
     // EFFECTS: constructs the mark as sold
     public Filter(ViewList viewList, PropertyList propertyList) {
@@ -95,7 +97,7 @@ public class Filter extends JFrame implements ActionListener {
             int minPrice = Integer.parseInt(fieldIndex2.getText());
             int maxPrice = Integer.parseInt(fieldIndex3.getText());
             List<Property> filtered = propertyList.getPropertyListCityAndPrice(city, minPrice, maxPrice);
-
+            this.dispose();
             viewList.dispose();
             new FilteredList(filtered, propertyList);
 
@@ -105,6 +107,6 @@ public class Filter extends JFrame implements ActionListener {
 
 
     public static void main(String[] args) {
-        new PropertyListGUI();
+        new Filter(viewList, propertyList);
     }
 }

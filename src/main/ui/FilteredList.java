@@ -18,8 +18,11 @@ import javax.swing.table.TableColumn;
 import java.awt.Component;
 import java.awt.Dimension;
 
+
 //Code influenced by the Oracle https://docs.oracle.com/javase/tutorial/uiswing/examples/components/
 //                              TableRenderDemoProject/src/components/TableRenderDemo.java
+//Code influenced by stackoverflow example https://stackoverflow.com/questions/6578205/
+//                                         swing-jlabel-text-change-on-the-running-application
 // Represents a Filtered Property List GUI
 public class FilteredList extends JFrame implements ActionListener {
     private static List<Property> filteredList;

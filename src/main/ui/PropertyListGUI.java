@@ -15,6 +15,8 @@ import java.util.List;
 import persistence.JsonReader;
 import persistence.JsonWriter;
 
+//Code influenced by stackoverflow example https://stackoverflow.com/questions/6578205/
+//                                         swing-jlabel-text-change-on-the-running-application
 // Represents a Property List GUI
 public class PropertyListGUI extends JFrame implements ActionListener {
     private JsonWriter jsonWriter;

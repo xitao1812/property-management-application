@@ -22,6 +22,8 @@ import java.awt.Dimension;
 
 //Code influenced by the Oracle https://docs.oracle.com/javase/tutorial/uiswing/examples/components/
 //                              TableRenderDemoProject/src/components/TableRenderDemo.java
+//Code influenced by stackoverflow example https://stackoverflow.com/questions/6578205/
+//                                         swing-jlabel-text-change-on-the-running-application
 // Represents a View Property List GUI
 public class ViewList extends JFrame implements ActionListener {
     private static PropertyList propertyList;

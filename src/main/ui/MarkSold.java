@@ -9,15 +9,17 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
+//Code influenced by stackoverflow example https://stackoverflow.com/questions/6578205/
+//                                         swing-jlabel-text-change-on-the-running-application
 // Represents a mark as sold GUI
 public class MarkSold extends JFrame implements ActionListener {
     private JFrame frame;
     private JLabel displayField;
-    private PropertyList propertyList;
+    private static PropertyList propertyList;
     private JTextField fieldIndex1;
     private JTextField fieldIndex2;
     private ImageIcon image;
-    private ViewList viewList;
+    private static ViewList viewList;
 
     // EFFECTS: constructs the mark as sold
     public MarkSold(ViewList viewList, PropertyList propertyList) {
@@ -104,6 +106,6 @@ public class MarkSold extends JFrame implements ActionListener {
 
 
     public static void main(String[] args) {
-        new PropertyListGUI();
+        new MarkSold(viewList, propertyList);
     }
 }
