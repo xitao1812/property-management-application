@@ -17,7 +17,7 @@ import persistence.JsonWriter;
 
 //Code influenced by stackoverflow example https://stackoverflow.com/questions/6578205/
 //                                         swing-jlabel-text-change-on-the-running-application
-// Represents a Property List GUI
+// Represents a Property List main menu GUI
 public class PropertyListGUI extends JFrame implements ActionListener {
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
@@ -152,7 +152,5 @@ public class PropertyListGUI extends JFrame implements ActionListener {
         }
     }
 
-    public static void main(String[] args) {
-        new PropertyListGUI();
-    }
+
 }

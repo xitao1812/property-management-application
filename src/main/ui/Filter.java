@@ -14,7 +14,6 @@ import java.util.List;
 //                                         swing-jlabel-text-change-on-the-running-application
 // Represents a filter based on price and location GUI
 public class Filter extends JFrame implements ActionListener {
-
     private PropertyList propertyList;
     private JTextField fieldIndex1;
     private JTextField fieldIndex2;

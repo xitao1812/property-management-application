@@ -115,7 +115,6 @@ public class FilteredList extends JFrame implements ActionListener {
         btnAdd.setBounds(20, 400, 200, 30);
 
 
-
     }
 
     // EFFECTS: calls corresponding methods when the JButton btn is clicked

@@ -26,7 +26,7 @@ import java.awt.Dimension;
 //                                         swing-jlabel-text-change-on-the-running-application
 // Represents a View Property List GUI
 public class ViewList extends JFrame implements ActionListener {
-    private static PropertyList propertyList;
+    private PropertyList propertyList;
     private MyTableModel model;
 
     // EFFECTS: constructs the view list

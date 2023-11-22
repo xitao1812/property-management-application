@@ -18,7 +18,6 @@ public class MarkSold extends JFrame implements ActionListener {
     private PropertyList propertyList;
     private JTextField fieldIndex1;
     private JTextField fieldIndex2;
-    private ImageIcon image;
     private ViewList viewList;
 
     // EFFECTS: constructs the mark as sold
