@@ -3,10 +3,10 @@
     "properties": [
         {
             "address": "4468 Dawson St",
-            "ownerName": "Mike",
+            "ownerName": "Kim",
             "city": "Burnaby",
             "price": 850000,
-            "isSold": false
+            "isSold": true
         },
         {
             "address": "811 - 5665 Boundary Road",
