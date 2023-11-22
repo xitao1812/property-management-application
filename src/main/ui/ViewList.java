@@ -29,7 +29,7 @@ public class ViewList extends JFrame implements ActionListener {
     private PropertyList propertyList;
     private MyTableModel model;
 
-    // EFFECTS: constructs the view list
+    // EFFECTS: constructs the view list interface to display the full property list
     public ViewList(PropertyList propertyList) {
 
         super("View List");

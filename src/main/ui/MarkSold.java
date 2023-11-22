@@ -20,7 +20,7 @@ public class MarkSold extends JFrame implements ActionListener {
     private JTextField fieldIndex2;
     private ViewList viewList;
 
-    // EFFECTS: constructs the mark as sold
+    // EFFECTS: constructs the mark as sold interface to display labels, buttons and input fields
     public MarkSold(ViewList viewList, PropertyList propertyList) {
         super("Mark a property as sold");
         this.propertyList = propertyList;

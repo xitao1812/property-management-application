@@ -24,7 +24,7 @@ public class AddProperty extends JFrame implements ActionListener {
     private ViewList viewList;
 
 
-    // EFFECTS: constructs the add property labels and buttons
+    // EFFECTS: constructs the add property interface to display labels, buttons and input fields
     public AddProperty(ViewList viewList, PropertyList propertyList) {
         super("Add a property");
         this.propertyList = propertyList;

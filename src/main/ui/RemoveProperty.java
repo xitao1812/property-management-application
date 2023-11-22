@@ -17,7 +17,7 @@ public class RemoveProperty extends JFrame implements ActionListener {
     private JTextField fieldIndex1;
     private ViewList viewList;
 
-    // EFFECTS: constructs the remove property page
+    // EFFECTS: constructs the remove property interface to display labels, buttons and input fields
     public RemoveProperty(ViewList viewList, PropertyList propertyList) {
         super("Remove a property");
         this.propertyList = propertyList;

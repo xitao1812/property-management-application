@@ -20,7 +20,7 @@ public class Filter extends JFrame implements ActionListener {
     private JTextField fieldIndex3;
     private ViewList viewList;
 
-    // EFFECTS: constructs the mark as sold
+    // EFFECTS: constructs the mark as sold interface to display labels, buttons and input fields
     public Filter(ViewList viewList, PropertyList propertyList) {
         super("Filtered List");
         this.propertyList = propertyList;

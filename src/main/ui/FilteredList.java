@@ -29,7 +29,7 @@ public class FilteredList extends JFrame implements ActionListener {
     private PropertyList propertyList;
     private MyTableModel model;
 
-    // EFFECTS: constructs the filtered list
+    // EFFECTS: constructs the filtered list interface
     public FilteredList(List<Property> filteredList, PropertyList propertyList) {
         super("Filtered List");
         this.filteredList = filteredList;
