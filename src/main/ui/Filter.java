@@ -15,11 +15,11 @@ import java.util.List;
 // Represents a filter based on price and location GUI
 public class Filter extends JFrame implements ActionListener {
 
-    private static PropertyList propertyList;
+    private PropertyList propertyList;
     private JTextField fieldIndex1;
     private JTextField fieldIndex2;
     private JTextField fieldIndex3;
-    private static ViewList viewList;
+    private ViewList viewList;
 
     // EFFECTS: constructs the mark as sold
     public Filter(ViewList viewList, PropertyList propertyList) {
@@ -105,8 +105,4 @@ public class Filter extends JFrame implements ActionListener {
     }
 
 
-
-    public static void main(String[] args) {
-        new Filter(viewList, propertyList);
-    }
 }

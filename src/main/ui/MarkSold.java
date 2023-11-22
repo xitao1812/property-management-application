@@ -15,11 +15,11 @@ import java.awt.event.ActionListener;
 public class MarkSold extends JFrame implements ActionListener {
     private JFrame frame;
     private JLabel displayField;
-    private static PropertyList propertyList;
+    private PropertyList propertyList;
     private JTextField fieldIndex1;
     private JTextField fieldIndex2;
     private ImageIcon image;
-    private static ViewList viewList;
+    private ViewList viewList;
 
     // EFFECTS: constructs the mark as sold
     public MarkSold(ViewList viewList, PropertyList propertyList) {
@@ -104,8 +104,4 @@ public class MarkSold extends JFrame implements ActionListener {
     }
 
 
-
-    public static void main(String[] args) {
-        new MarkSold(viewList, propertyList);
-    }
 }

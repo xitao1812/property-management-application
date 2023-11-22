@@ -25,8 +25,8 @@ import java.awt.Dimension;
 //                                         swing-jlabel-text-change-on-the-running-application
 // Represents a Filtered Property List GUI
 public class FilteredList extends JFrame implements ActionListener {
-    private static List<Property> filteredList;
-    private static PropertyList propertyList;
+    private List<Property> filteredList;
+    private PropertyList propertyList;
     private MyTableModel model;
 
     // EFFECTS: constructs the filtered list
@@ -126,9 +126,6 @@ public class FilteredList extends JFrame implements ActionListener {
         }
     }
 
-    public static void main(String[] args) {
-        new FilteredList(filteredList, propertyList);
-    }
 
 }
 

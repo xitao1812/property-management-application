@@ -16,11 +16,39 @@
             "isSold": false
         },
         {
-            "address": "512-774 Great Northern Way",
-            "ownerName": "Kim",
+            "address": "3663 Crowley Drive",
+            "ownerName": "David",
             "city": "Vancouver",
-            "price": 549000,
-            "isSold": true
+            "price": 758000,
+            "isSold": false
+        },
+        {
+            "address": "4505 Hazel St",
+            "ownerName": "Joe",
+            "city": "Burnaby",
+            "price": 1249000,
+            "isSold": false
+        },
+        {
+            "address": "5667 Smith Ave",
+            "ownerName": "Jenny",
+            "city": "Burnaby",
+            "price": 529000,
+            "isSold": false
+        },
+        {
+            "address": "5695 Chaffey Ave",
+            "ownerName": "William",
+            "city": "Burnaby",
+            "price": 599000,
+            "isSold": false
+        },
+        {
+            "address": "5929 Berwick St",
+            "ownerName": "Sam",
+            "city": "Burnaby",
+            "price": 1850000,
+            "isSold": false
         }
     ]
 }

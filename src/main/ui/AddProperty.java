@@ -10,9 +10,9 @@ import java.awt.event.ActionListener;
 
 //Code influenced by stackoverflow example https://stackoverflow.com/questions/6578205/
 //                                         swing-jlabel-text-change-on-the-running-application
-// Represents a Add Property List GUI
+// Represents an Add Property List GUI
 public class AddProperty extends JFrame implements ActionListener {
-    private static PropertyList propertyList;
+    private PropertyList propertyList;
     private JLabel labelAddress;
     private JLabel labelCity;
     private JLabel labelOwner;
@@ -21,7 +21,7 @@ public class AddProperty extends JFrame implements ActionListener {
     private JTextField fieldCity;
     private JTextField fieldOwner;
     private JTextField fieldPrice;
-    private static ViewList viewList;
+    private ViewList viewList;
 
 
     // EFFECTS: constructs the add property labels and buttons
@@ -123,7 +123,4 @@ public class AddProperty extends JFrame implements ActionListener {
     }
 
 
-    public static void main(String[] args) {
-        new AddProperty(viewList, propertyList);
-    }
 }

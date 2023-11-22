@@ -156,9 +156,6 @@ public class ViewList extends JFrame implements ActionListener {
         }
     }
 
-    public static void main(String[] args) {
-        new ViewList(propertyList);
-    }
 
 }
 
