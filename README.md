@@ -30,12 +30,12 @@
 ## Instructions for Grader
 
 - You can generate the first required action related to adding properties to property list by clicking 
-the Add property button
+the "Add property" button on the main menu page or the ViewList page
 - You can generate the second required action related to changing the sold status and new owner name 
-by clicking the Mark a property as sold button
-- You can locate my visual component by clicking the save button and load button 
-- You can save the state of my application by clicking the save button
-- You can reload the state of my application by clicking the load button
+by clicking the "Mark a property as sold" button on the ViewList page
+- You can locate my visual component by clicking the "load" button and "save" button 
+- You can save the state of my application by clicking the "save" button
+- You can reload the state of my application by clicking the "load" button
 
 
 

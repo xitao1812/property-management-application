@@ -17,10 +17,10 @@
         },
         {
             "address": "3663 Crowley Drive",
-            "ownerName": "David",
+            "ownerName": "Felix",
             "city": "Vancouver",
             "price": 758000,
-            "isSold": false
+            "isSold": true
         },
         {
             "address": "4505 Hazel St",
@@ -48,6 +48,13 @@
             "ownerName": "Sam",
             "city": "Burnaby",
             "price": 1850000,
+            "isSold": false
+        },
+        {
+            "address": "3361 Euclid Ave",
+            "ownerName": "Eva",
+            "city": "Vancouver",
+            "price": 1950000,
             "isSold": false
         }
     ]

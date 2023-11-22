@@ -118,7 +118,9 @@ public class AddProperty extends JFrame implements ActionListener {
             new ViewList(propertyList);
             dispose();
         } else if (e.getActionCommand().equals("viewList")) {
+            viewList.dispose();
             new ViewList(propertyList);
+            dispose();
         }
     }
 
