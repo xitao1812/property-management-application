@@ -1,6 +1,6 @@
 package ui;
 
-
+import model.EventLog;
 import model.Property;
 import model.PropertyList;
 import javax.swing.*;
@@ -8,6 +8,8 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.util.List;
 
 
@@ -25,7 +27,7 @@ import java.awt.Dimension;
 //Code influenced by stackoverflow example https://stackoverflow.com/questions/6578205/
 //                                         swing-jlabel-text-change-on-the-running-application
 // Represents a View Property List GUI
-public class ViewList extends JFrame implements ActionListener {
+public class ViewList extends JFrame implements ActionListener, WindowListener {
     private PropertyList propertyList;
     private MyTableModel model;
 
@@ -58,6 +60,7 @@ public class ViewList extends JFrame implements ActionListener {
         add(labelInfo);
 
         this.setButton();
+        addWindowListener(this);
 
         pack();
         setLocationRelativeTo(null);
@@ -155,6 +158,50 @@ public class ViewList extends JFrame implements ActionListener {
             new Filter(this, propertyList);
         }
     }
+
+
+    public void windowClosing(WindowEvent e) {
+        Printer.printLog(EventLog.getInstance());
+        ActionListener task = new ActionListener() {
+            boolean alreadyDisposed = false;
+            public void actionPerformed(ActionEvent e) {
+//                if (this.isDisplayable()) {
+//                    alreadyDisposed = true;
+//                    this.dispose();
+//                }
+            }
+        };
+        Timer timer = new Timer(500, task); //fire every half second
+        timer.setInitialDelay(2000);        //first delay 2 seconds
+        timer.setRepeats(false);
+        timer.start();
+    }
+
+    public void windowClosed(WindowEvent e) {
+        Printer.printLog(EventLog.getInstance());
+    }
+
+    public void windowOpened(WindowEvent e) {
+
+    }
+
+    public void windowIconified(WindowEvent e) {
+    }
+
+    public void windowDeiconified(WindowEvent e) {
+    }
+
+    public void windowActivated(WindowEvent e) {
+    }
+
+    public void windowDeactivated(WindowEvent e) {
+    }
+
+    void displayMessage(String msg) {
+        System.out.println(msg);
+    }
+
+
 
 
 }

@@ -10,10 +10,10 @@
         },
         {
             "address": "811 - 5665 Boundary Road",
-            "ownerName": "Alex",
+            "ownerName": "Ada",
             "city": "Vancouver",
             "price": 599000,
-            "isSold": false
+            "isSold": true
         },
         {
             "address": "3663 Crowley Drive",

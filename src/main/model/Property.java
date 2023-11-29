@@ -60,12 +60,16 @@ public class Property implements Writable {
     // EFFECTS: change the property's owner name to new owner name
     public void setOwnerName(String owner) {
         this.ownerName = owner;
+        EventLog.getInstance().logEvent(new Event("Updated the owner name of Property: [" + getAddress()
+                + ", " + getCity() + "] to " + owner));
     }
 
     // MODIFIES: this
     // EFFECTS: mark the property as sold by changing the property's isSold status to true
     public void setAsSold() {
         this.isSold = true;
+        EventLog.getInstance().logEvent(new Event("Marked Property: [" + getAddress() + "," + getCity()
+                + "] as sold"));
     }
 
     // EFFECTS: returns a property as JSON object

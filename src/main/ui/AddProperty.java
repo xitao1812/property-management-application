@@ -1,5 +1,7 @@
 package ui;
 
+import model.Event;
+import model.EventLog;
 import model.Property;
 import model.PropertyList;
 import javax.swing.*;
@@ -114,6 +116,7 @@ public class AddProperty extends JFrame implements ActionListener {
             String ownerName = fieldOwner.getText();
             int price = Integer.parseInt(fieldPrice.getText());
             propertyList.addProperty(new Property(address, city, price, ownerName, false));
+
             viewList.dispose();
             new ViewList(propertyList);
             dispose();

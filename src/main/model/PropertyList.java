@@ -34,16 +34,21 @@ public class PropertyList implements Writable {
     }
 
     // MODIFIES: this
-    // EFFECTS: add a property to the property list
+    // EFFECTS: add a property to the property list, and add this Event to EventLog
     public void addProperty(Property property) {
         propertyList.add(property);
+        EventLog.getInstance().logEvent(new Event("Property: [" + property.getAddress() + ", "
+                + property.getCity()
+                + "] added to the property list"));
+
     }
 
     // REQUIRES: propertyIndex >= 0 and propertyIndex < size of propertyList
     // MODIFIES: this
-    // EFFECTS: remove a property form the list
+    // EFFECTS: remove a property form the list, and add this Event to EventLog
     public void removeProperty(int propertyIndex) {
         propertyList.remove(propertyIndex);
+        EventLog.getInstance().logEvent(new Event("A property removed from the property list"));
     }
 
     // REQUIRES: propertyIndex >= 0 and propertyIndex < size of propertyList
@@ -52,6 +57,7 @@ public class PropertyList implements Writable {
     public void markPropertyAsSold(int propertyIndex) {
         Property property = propertyList.get(propertyIndex);
         property.setAsSold();
+
     }
 
     // EFFECTS: return a list of property in the specified city

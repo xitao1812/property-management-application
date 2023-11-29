@@ -39,4 +39,10 @@ by clicking the "Mark a property as sold" button on the ViewList page
 
 
 
-
+## Phase 4: Task 2
+- If a property at 3361 Euclid Ave, Vancouver is added to the property list, 
+ the event is "Property: [3361 Euclid Ave, Vancouver] added to the property list"
+- If a property is removed from the list, the event is "A property removed from the property list"
+- If a property at 3361 Euclid Ave, Vancouver is mark as sold and updated with new owner name, the event is 
+"Marked Property: [3361 Euclid Ave,Vancouver] as sold" and "Updated the owner name of 
+Property: [3361 Euclid Ave, Vancouver] to Cathy"
