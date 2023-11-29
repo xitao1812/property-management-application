@@ -33,20 +33,9 @@ public class ViewList extends JFrame implements ActionListener, WindowListener {
 
     // EFFECTS: constructs the view list interface to display the full property list
     public ViewList(PropertyList propertyList) {
-
         super("View List");
         this.propertyList = propertyList;
-
-        model = new MyTableModel();
-        JTable table = new JTable(model);
-        table.setPreferredScrollableViewportSize(new Dimension(500, 300));
-        table.setFillsViewportHeight(true);
-
-        JScrollPane scrollPane = new JScrollPane(table);
-        initColumnSizes(table);
-        add(scrollPane);
-        scrollPane.setBounds(50, 50, 700, 300);
-
+        this.setTable();
         this.addPropertyToTable();
 
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -56,7 +45,6 @@ public class ViewList extends JFrame implements ActionListener, WindowListener {
 
         JLabel labelInfo = new JLabel("Property List");
         labelInfo.setBounds(50, 10, 400, 30);
-
         add(labelInfo);
 
         this.setButton();
@@ -116,6 +104,18 @@ public class ViewList extends JFrame implements ActionListener, WindowListener {
         }
     }
 
+    // EFFECTS: constructs the table in the application
+    public void setTable() {
+        model = new MyTableModel();
+        JTable table = new JTable(model);
+        table.setPreferredScrollableViewportSize(new Dimension(500, 300));
+        table.setFillsViewportHeight(true);
+        JScrollPane scrollPane = new JScrollPane(table);
+        initColumnSizes(table);
+        add(scrollPane);
+        scrollPane.setBounds(50, 50, 700, 300);
+
+    }
 
 
     // EFFECTS: constructs the buttons in the application
