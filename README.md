@@ -48,5 +48,8 @@ by clicking the "Mark a property as sold" button on the ViewList page
 Property: [3361 Euclid Ave, Vancouver] to Cathy"
 
 
-## Phase 4: Task 3sa
-- 
+## Phase 4: Task 3
+
+- In ViewList's addPropertyToTable method, it uses propertyList.getPropertyList() in the for each loop.
+ This can be refactored that propertyList implements Iterable<Property> so that we can use propertyList
+  directly in the for each loop
