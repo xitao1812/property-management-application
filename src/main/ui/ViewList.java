@@ -58,7 +58,7 @@ public class ViewList extends JFrame implements ActionListener, WindowListener {
 
     // EFFECTS: constructs a table with columns index, address, city, price, owner name, price, and sold status
     private void initColumnSizes(JTable table) {
-        MyTableModel model = (MyTableModel)table.getModel();
+        model = (MyTableModel)table.getModel();
         TableColumn column = null;
         Component comp = null;
         int headerWidth = 0;

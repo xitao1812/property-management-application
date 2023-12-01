@@ -23,7 +23,6 @@ public class PropertyListGUI extends JFrame implements ActionListener, WindowLis
     private JsonReader jsonReader;
     private static final String JSON_STORE = "./data/propertyList.json";
 
-
     private JLabel displayField1;
     private ImageIcon image1;
     private JLabel displayField2;
