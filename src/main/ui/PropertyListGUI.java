@@ -158,7 +158,7 @@ public class PropertyListGUI extends JFrame implements ActionListener, WindowLis
 
 
     public void windowClosing(WindowEvent e) {
-        Printer.printLog(EventLog.getInstance());
+        //Printer.printLog(EventLog.getInstance());
         ActionListener task = new ActionListener() {
             boolean alreadyDisposed = false;
             public void actionPerformed(ActionEvent e) {
