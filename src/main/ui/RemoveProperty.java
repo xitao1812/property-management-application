@@ -73,7 +73,7 @@ public class RemoveProperty extends JFrame implements ActionListener {
             int index = Integer.parseInt(fieldIndex1.getText());
             propertyList.removeProperty(index);
             this.dispose();
-            //viewList.dispose();
+
             new ViewList(propertyList);
 
         }
