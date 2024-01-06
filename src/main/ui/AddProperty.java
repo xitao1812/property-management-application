@@ -117,7 +117,7 @@ public class AddProperty extends JFrame implements ActionListener {
             int price = Integer.parseInt(fieldPrice.getText());
             propertyList.addProperty(new Property(address, city, price, ownerName, false));
 
-            
+            viewList.dispose();
             new ViewList(propertyList);
             dispose();
         } else if (e.getActionCommand().equals("viewList")) {

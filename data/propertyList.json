@@ -45,17 +45,17 @@
         },
         {
             "address": "5929 Berwick St",
-            "ownerName": "Sam",
+            "ownerName": "Vicky",
             "city": "Burnaby",
             "price": 1850000,
-            "isSold": false
+            "isSold": true
         },
         {
             "address": "3361 Euclid Ave",
-            "ownerName": "Eva",
+            "ownerName": "Tim",
             "city": "Vancouver",
             "price": 1950000,
-            "isSold": false
+            "isSold": true
         }
     ]
 }

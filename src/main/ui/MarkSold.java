@@ -94,7 +94,7 @@ public class MarkSold extends JFrame implements ActionListener {
             Property soldProperty = propertyList.get(index);
             soldProperty.setOwnerName(newOwnerName);
             this.dispose();
-
+            viewList.dispose();
             new ViewList(propertyList);
 
         } else if (e.getActionCommand().equals("viewList")) {
